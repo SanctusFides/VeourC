@@ -6,12 +6,17 @@
         xmlns:local="clr-namespace:Veour"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1260">
-    <Grid>
-        <TextBlock x:Name="testText"></TextBlock>
-        <!-- <Border> -->
-        <!--     <Window> -->
-        <!--          -->
-        <!--     </Window> -->
-        <!-- </Border> -->
-    </Grid>
+    <!-- <StackPanel> -->
+    <!--     <StackPanel> -->
+    <!--          -->
+    <!--     </StackPanel> -->
+    <!--      -->
+    <!--     <Grid> -->
+    <!--          -->
+    <!--     </Grid> -->
+    <!--      -->
+    <!--     <StackPanel> -->
+    <!--          -->
+    <!--     </StackPanel> -->
+    <!-- </StackPanel> -->
 </Window>

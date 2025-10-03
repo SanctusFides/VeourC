@@ -1,0 +1,68 @@
+﻿[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.pdb
+*.suo
+*.user
+*.userprefs
+*.log
+*.bak
+*.ncb
+*.aps
+*.cache
+*.obj
+*.pch
+*.ipch
+*.aps
+*.bsc
+*.sbr
+*.res
+*.tlb
+*.tlh
+*.tmp
+*.vspscc
+*.vssscc
+*.vspcc
+*.vssscc
+*.vspscc
+*.vspcc
+*.vssscc
+*.vspscc
+*.vspcc
+*.vssscc
+*.vspscc
+*.vspcc
+*.vssscc
+*.vspscc
+*.vspcc
+*.vssscc
+*.vspscc
+*.vspcc
+
+# Visual Studio files
+.vs/
+*.sln.docstates
+*.csproj.user
+*.vcxproj.user
+*.filters
+*.intellisense.xml
+
+# NuGet packages
+packages/
+*.nupkg
+*.snupkg
+
+# Rider files
+.idea/
+*.iml
+*.sln.iml
+
+# Resharper files
+*.resharper
+
+# Test results
+TestResults/
+
+# DotNet CLI files
+.dotnet/

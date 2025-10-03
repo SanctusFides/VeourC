@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Extensions.Configuration;
+using Veour.Models;
 using Veour.Services;
 
 namespace Veour
@@ -28,8 +29,21 @@ namespace Veour
                 .Build();
             SqlDataAccess dataAccess = new SqlDataAccess(configuration);
             Task<String[]> res = dataAccess.GetLatAndLong("houston","texas");
-            testText.Text = res.Result[0] + "  " + res.Result[1];
-            testText.FontSize = 32;
+            
+            var forecast = new Forecast();
+            forecast.Temp = 100;
+            forecast.High = 200;
+            forecast.Low = 001;
+            forecast.FeelsLikeTemp = 500;
+            forecast.Date = DateTime.Now;
+            forecast.Humidity = 60;
+            forecast.Precipitation = 10;
+            forecast.WeatherCode = "168";
+            forecast.WeatherDescription = "snowy";
+            forecast.WindSpeed = 20;
+            forecast.WindDirection = "NW";
+            
+            Console.WriteLine(forecast);
         }
     }
 }

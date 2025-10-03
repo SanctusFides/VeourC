@@ -56,3 +56,4 @@ C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\runtimes\win-arm64\native\
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Dapper.dll
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.sourcelink.json
