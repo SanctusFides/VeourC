@@ -26,6 +26,6 @@ public partial class MainWindow : Window
 
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
-
+        _vm.HandleSearch(CityStateInput.Text);
     }
 }

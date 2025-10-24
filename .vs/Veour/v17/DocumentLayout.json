@@ -7,20 +7,16 @@
       "RelativeMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|c:\\users\\john1\\code\\c#\\veour\\services\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|solutionrelative:services\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|c:\\users\\john1\\code\\c#\\veour\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|solutionrelative:views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|c:\\users\\john1\\code\\c#\\veour\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|solutionrelative:views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|c:\\users\\john1\\code\\c#\\veour\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|c:\\users\\john1\\code\\c#\\veour\\services\\sqldataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30FF4608-D3BE-479D-8847-C7B2A78E7388}|Veour.csproj|solutionrelative:services\\sqldataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,27 +46,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\John1\\Code\\C#\\Veour\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\John1\\Code\\C#\\Veour\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-23T20:51:38.221Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SqlDataAccess.cs",
-              "DocumentMoniker": "C:\\Users\\John1\\Code\\C#\\Veour\\Services\\SqlDataAccess.cs",
-              "RelativeDocumentMoniker": "Services\\SqlDataAccess.cs",
-              "ToolTip": "C:\\Users\\John1\\Code\\C#\\Veour\\Services\\SqlDataAccess.cs",
-              "RelativeToolTip": "Services\\SqlDataAccess.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Utility.cs",
+              "DocumentMoniker": "C:\\Users\\John1\\Code\\C#\\Veour\\Services\\Utility.cs",
+              "RelativeDocumentMoniker": "Services\\Utility.cs",
+              "ToolTip": "C:\\Users\\John1\\Code\\C#\\Veour\\Services\\Utility.cs",
+              "RelativeToolTip": "Services\\Utility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T21:41:50.722Z"
+              "WhenOpened": "2025-10-24T20:46:35.14Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -80,14 +65,14 @@
               "RelativeDocumentMoniker": "ViewModels\\MainWindowViewModel.cs",
               "ToolTip": "C:\\Users\\John1\\Code\\C#\\Veour\\ViewModels\\MainWindowViewModel.cs",
               "RelativeToolTip": "ViewModels\\MainWindowViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T21:15:53.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\John1\\Code\\C#\\Veour\\Views\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
@@ -99,13 +84,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\John1\\Code\\C#\\Veour\\Views\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\John1\\Code\\C#\\Veour\\Views\\MainWindow.xaml.cs",
               "RelativeToolTip": "Views\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwBAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T20:22:58.967Z",
               "EditorCaption": ""

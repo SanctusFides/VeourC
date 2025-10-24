@@ -14,36 +14,50 @@ using Veour.Services;
 
 namespace Veour.ViewModel
 {
+
     public class MainWindowViewModel
     {
         public ObservableCollection<string> Cities { get; set; } = new ObservableCollection<string>();
+        public String[] LatitudeLongitude { get; set; } = Array.Empty<string>();
 
-        private String[] LatitudeLongitude { get; set; }
 
         public MainWindowViewModel() 
         {
-            Cities = LoadCityList();
-            Debug.WriteLine($"Loaded {Cities.Count} cities.");
+            Cities = Utility.LoadCityList();
         }
 
-        public ObservableCollection<string> LoadCityList()
+        public void HandleSearch(string cityState)
         {
             try
             {
-                string CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string File = Path.Combine(CurrentDirectory, @"Assets\Files\locations-ranked.txt");
-                string FilePath = Path.GetFullPath(File);
-                using StreamReader sr = new StreamReader(FilePath);
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Cities.Add(line);
-                }
-            } catch (Exception e) {
-                    Debug.WriteLine("Could not read the file");
-                    Debug.WriteLine(e.Message);
+                SetCoordinates(cityState);
             }
-            return Cities;
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error retrieving coordinates for {cityState}: {e.Message}");
+            }
+        }
+
+        private void SetCoordinates(string cityState)
+        {
+            var parts = cityState.ToLower().Split(',');
+            if (parts.Length != 2)
+            {
+                throw new ArgumentException("Input must be in the format 'City,State'");
+            }
+            string city = parts[0].Trim();
+            string state = parts[1].Trim();
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+            SqlDataAccess dataAccess = new SqlDataAccess(configuration);
+            Task<String[]> res = dataAccess.GetLatAndLong(city, state);
+            if (res.Result[0] != null || res.Result[1] != null)
+            {
+                LatitudeLongitude = res.Result;
+            }
+            Debug.WriteLine($"Coordinates for {cityState}: {LatitudeLongitude[0]}, {LatitudeLongitude[1]}");
         }
 
         private Forecast CreateTestForecast()
@@ -63,18 +77,6 @@ namespace Veour.ViewModel
                 WindDirection = "NE"
             };
             return forecast;
-        }
-
-        private string CreateTestCoordinates()
-        {
-            //return coordinates for Houston,TX
-            IConfiguration configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
-            SqlDataAccess dataAccess = new SqlDataAccess(configuration);
-            Task<String[]> res = dataAccess.GetLatAndLong("houston", "texas");
-            return string.Join(",", res.Result);
         }
     }
 }

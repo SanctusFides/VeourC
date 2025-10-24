@@ -10,11 +10,11 @@ public class Forecast {
     public double Precipitation {get; set;}
     public DateTime Date {get; set;}
     
-    public string WeatherCode {get; set;}
-    public string WeatherDescription {get; set;}
+    public string WeatherCode {get; set;} = string.Empty;
+    public string WeatherDescription {get; set;} = string.Empty;
     
     public int WindSpeed {get; set;}
-    public string WindDirection {get; set;}
+    public string WindDirection {get; set;} = string.Empty;
     
     public Forecast() {}
 
