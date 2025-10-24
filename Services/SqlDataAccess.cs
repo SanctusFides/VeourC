@@ -27,8 +27,6 @@ namespace Veour.Services {
             await using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
             {
-                Console.WriteLine(reader.GetString(0));
-                Console.WriteLine(reader.GetString(1));
                 arr[0] = reader.GetString(0);
                 arr[1] = reader.GetString(1);
             }

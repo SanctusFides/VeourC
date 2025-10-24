@@ -12,11 +12,9 @@ C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Microsoft.Extensions.FileP
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.csproj.AssemblyReference.cache
-C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\MainWindow.g.cs
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\App.g.cs
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour_MarkupCompile.cache
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour_MarkupCompile.lref
-C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\MainWindow.baml
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.g.resources
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.AssemblyInfoInputs.cache
@@ -57,3 +55,7 @@ C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\runtimes\win-x64\native\e_
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Dapper.dll
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.sourcelink.json
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\MainWindow.g.cs
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\MainWindow.baml
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\App.baml
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Assets\Files\locations-ranked.txt
