@@ -13,8 +13,8 @@ public class Forecast {
     public string WeatherCode {get; set;} = string.Empty;
     public string WeatherDescription {get; set;} = string.Empty;
     
-    public int WindSpeed {get; set;}
-    public string WindDirection {get; set;} = string.Empty;
+    public double WindSpeed {get; set;}
+    public int WindDirection {get; set;}
     
     public Forecast() {}
 

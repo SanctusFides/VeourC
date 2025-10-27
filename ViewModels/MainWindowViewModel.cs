@@ -19,8 +19,8 @@ namespace Veour.ViewModel
     {
         readonly ApiDriver _apiDriver = new();
         public ObservableCollection<string> Cities { get; set; } = [];
-        public String Latitude { get; set; }
-        public String Longitude { get; set; }
+        private string? Latitude { get; set; }
+        private string? Longitude { get; set; }
 
         public MainWindowViewModel() 
         {
@@ -31,10 +31,21 @@ namespace Veour.ViewModel
 
         public void HandleSearch(string cityState)
         {
+            // TODO validate input format - lift the current formatting out of SetCoords and move it into a validator here
             try
             {
+                // Set coordinates by looking up city and state in SQL database
                 SetCoordinates(cityState);
-                _apiDriver.FetchWeather(Latitude, Longitude);
+                // If valid coordinates are retrieved, fetch weather data from API
+                if (!string.IsNullOrEmpty(Latitude) && !string.IsNullOrEmpty(Longitude))
+                {
+                    _apiDriver.FetchWeather(Latitude, Longitude);
+                }
+                else
+                {
+                    Debug.WriteLine($"Error: Latitude or Longitude is null for {cityState}.");
+                    // TODO handle pushing error to UI
+                }
             }
             catch (Exception e)
             {
@@ -45,7 +56,6 @@ namespace Veour.ViewModel
 
         private void SetCoordinates(string cityState)
         {
-            // TODO validate input format
             var parts = cityState.ToLower().Split(',');
             if (parts.Length != 2)
             {
@@ -57,6 +67,7 @@ namespace Veour.ViewModel
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
+            // Retrieve latitude and longitude from SQL database using GetLatAndLong method which as a predefined query
             SqlDataAccess dataAccess = new SqlDataAccess(configuration);
             Task<String[]> res = dataAccess.GetLatAndLong(city, state);
             try
@@ -76,25 +87,6 @@ namespace Veour.ViewModel
                 Debug.WriteLine($"Error retrieving coordinates for {cityState}: {e.Message}");
             }
 
-        }
-
-        public Forecast CreateTestForecast()
-        {
-            var forecast = new Forecast
-            {
-                Temp = 75,
-                High = 80,
-                Low = 65,
-                FeelsLikeTemp = 77,
-                Date = DateTime.Now,
-                Humidity = 50,
-                Precipitation = 20,
-                WeatherCode = "100",
-                WeatherDescription = "Sunny",
-                WindSpeed = 10,
-                WindDirection = "NE"
-            };
-            return forecast;
         }
     }
 }

@@ -16,17 +16,17 @@ namespace Veour.Services
 
         public static ObservableCollection<string> LoadCityList()
         {
-            ObservableCollection<string> Cities  = [];
+            ObservableCollection<string> cities  = [];
             try
             {
-                string CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string File = Path.Combine(CurrentDirectory, @"Assets\Files\locations-ranked.txt");
-                string FilePath = Path.GetFullPath(File);
-                using StreamReader sr = new StreamReader(FilePath);
+                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string file = Path.Combine(currentDirectory, @"Assets\Files\locations-ranked.txt");
+                string filePath = Path.GetFullPath(file);
+                using StreamReader sr = new StreamReader(filePath);
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Cities.Add(line);
+                    cities.Add(line);
                 }
             }
             catch (Exception e)
@@ -35,7 +35,7 @@ namespace Veour.Services
                 Debug.WriteLine("Could not read the file");
                 Debug.WriteLine(e.Message);
             }
-            return Cities;
+            return cities;
         }
     }
 }
