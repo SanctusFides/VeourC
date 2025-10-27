@@ -17,29 +17,35 @@ namespace Veour.ViewModel
 
     public class MainWindowViewModel
     {
-        public ObservableCollection<string> Cities { get; set; } = new ObservableCollection<string>();
-        public String[] LatitudeLongitude { get; set; } = Array.Empty<string>();
-
+        readonly ApiDriver _apiDriver = new();
+        public ObservableCollection<string> Cities { get; set; } = [];
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
 
         public MainWindowViewModel() 
         {
             Cities = Utility.LoadCityList();
         }
 
+
+
         public void HandleSearch(string cityState)
         {
             try
             {
                 SetCoordinates(cityState);
+                _apiDriver.FetchWeather(Latitude, Longitude);
             }
             catch (Exception e)
             {
+                // TODO handle pushing error to UI
                 Debug.WriteLine($"Error retrieving coordinates for {cityState}: {e.Message}");
             }
         }
 
         private void SetCoordinates(string cityState)
         {
+            // TODO validate input format
             var parts = cityState.ToLower().Split(',');
             if (parts.Length != 2)
             {
@@ -53,14 +59,26 @@ namespace Veour.ViewModel
                 .Build();
             SqlDataAccess dataAccess = new SqlDataAccess(configuration);
             Task<String[]> res = dataAccess.GetLatAndLong(city, state);
-            if (res.Result[0] != null || res.Result[1] != null)
+            try
             {
-                LatitudeLongitude = res.Result;
+                // Ensure valid coordinates are retrieved and the latitude starts with a negative value
+                if (res.Result[0] != null || res.Result[1] != null && res.Result[1].StartsWith("-")) 
+                {
+                    Latitude = res.Result[0];
+                    Longitude = res.Result[1];
+                } else {                     
+                    throw new Exception("Invalid coordinates retrieved from database."); 
+                }
             }
-            Debug.WriteLine($"Coordinates for {cityState}: {LatitudeLongitude[0]}, {LatitudeLongitude[1]}");
+            catch (Exception e)
+            {
+                // TODO handle pushing error to UI
+                Debug.WriteLine($"Error retrieving coordinates for {cityState}: {e.Message}");
+            }
+
         }
 
-        private Forecast CreateTestForecast()
+        public Forecast CreateTestForecast()
         {
             var forecast = new Forecast
             {

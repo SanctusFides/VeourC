@@ -16,10 +16,9 @@ namespace Veour.Services
 
         public static ObservableCollection<string> LoadCityList()
         {
-            ObservableCollection<string> Cities  = new ObservableCollection<string>();
+            ObservableCollection<string> Cities  = [];
             try
             {
-
                 string CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 string File = Path.Combine(CurrentDirectory, @"Assets\Files\locations-ranked.txt");
                 string FilePath = Path.GetFullPath(File);
@@ -32,6 +31,7 @@ namespace Veour.Services
             }
             catch (Exception e)
             {
+                // TODO log error
                 Debug.WriteLine("Could not read the file");
                 Debug.WriteLine(e.Message);
             }
