@@ -4,13 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Veour"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
         Title="Veour" Height="750" Width="1260" WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="true"
         Background="Transparent">
-    <Border CornerRadius="10" BorderThickness="1">
+    <Border CornerRadius="10" BorderThickness="1" 
+            MouseLeftButtonDown="PnlControlBar_MouseLeftButtonDown"
+            MouseEnter="PnlControlBar_MouseEnter">
         <Border.BorderBrush>
             <SolidColorBrush Color="#001945"/>
         </Border.BorderBrush>
@@ -22,44 +24,86 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <!-- Top Header Section -->
             <Border CornerRadius="10,10,0,0" Grid.Row="0">
                 <Border.Background>
                     <SolidColorBrush Color="#001945"/>
                 </Border.Background>
 
-                <StackPanel Orientation="Horizontal"
-                    Background="#001945"
-                    Height="100" Width="1260">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!-- Windows Buttons Row -->
+                        <RowDefinition Height="30"/>
+                        <!-- Content Row -->
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!-- Windows Buttons -->
+                    <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,-1,-1,0"
+                                >
+                        <Button x:Name="btnClose"
+                                Style="{StaticResource winBtnClose}"
+                                
+                                Click="BtnClose_Click">
+                            <fa:IconImage Icon="Xmark" Style="{StaticResource winBtnIcon}"/>
+                        </Button>
+                        <Button x:Name="btnMaximize"
+                                Style="{StaticResource winBtn}"
+                                
+                                Click="BtnMaximize_Click">
+                            <fa:IconImage Icon="WindowMaximize" Style="{StaticResource winBtnIcon}"/>
+                        </Button>
+                        <Button x:Name="btnMinimize"
+                                Style="{StaticResource winBtn}"
+                                Width="38"
+                                Click="BtnMinimize_Click">
+                            <fa:IconImage Icon="WindowMinimize" Style="{StaticResource winBtnIcon}"/>
+                        </Button>
+                       
+                        
+                        
+                     
+                    </StackPanel>
+                    <!-- Content Section -->
+                    <StackPanel Grid.Row="1"
+                        Orientation="Horizontal"
+                        Background="#001945"
+                        Height="100" Width="1260">
 
-                    <Image Source="\Assets\Images\logo.png" Height="60" Width="200"
-                   Margin="60,0,105,0" VerticalAlignment="Center"/>
+                        <Image Source="\Assets\Images\logo.png" Height="60" Width="200"
+                       Margin="60,0,105,0" VerticalAlignment="Center"/>
 
-                    <Label x:Name="label" Content="Enter Your Location" Foreground="White"
-                   FontSize="24" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                        <Label x:Name="label" Content="Enter Your Location" Foreground="White"
+                       FontSize="24" VerticalAlignment="Center" Margin="0,0,8,0"/>
 
-                    <ComboBox x:Name="CityStateInput"
-                      IsEditable="True"
-                      Width="223" Height="28" Padding="5,0,0,0"
-                      FontSize="18" Margin="0,0,8,0"
-                      VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" 
-                      AutomationProperties.HelpText="Enter your city and state here">
-                        <ComboBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <VirtualizingStackPanel/>
-                            </ItemsPanelTemplate>
-                        </ComboBox.ItemsPanel>
-                    </ComboBox>
+                        <ComboBox x:Name="CityStateInput"
+                          IsEditable="True"
+                          Width="223" Height="28" Padding="5,0,0,0"
+                          FontSize="18" Margin="0,0,8,0"
+                          VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" 
+                          AutomationProperties.HelpText="Enter your city and state here">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
 
 
-                    <Button x:Name="SearchButton" Content="Search" Height="32" Padding="5" Width="64" FontSize="18" 
-                    Click="SearchButton_Click">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="3"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </StackPanel>
+                        <Button x:Name="SearchButton" Content="Search" Height="32" Padding="5" Width="64" FontSize="18" 
+                        Click="SearchButton_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </Grid>
             </Border>
 
 
@@ -82,23 +126,24 @@
                         <!-- Empty Spacer @ Bottom -->
                         <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
-
-                    <!-- City/State Bar -->
-                    <Border CornerRadius="10,10,0,0"
-                            Grid.Row="0">
-                        <Border.Background>
-                            <SolidColorBrush Color="Transparent"/>
-                        </Border.Background>
-                        
-                        
-                    </Border>
-
                     <!-- Forecast Section -->
-                    <Border Grid.Row="1">
-
-
+                    <Border Grid.Row="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        
+                        
+                        
                     </Border>
-
+                    <!-- Footer Spacer Section -->
                     <Border Grid.Row="1"
                         Background="Transparent">
                     </Border>

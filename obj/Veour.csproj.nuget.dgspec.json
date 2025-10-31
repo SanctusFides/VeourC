@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[2.1.66, )"
             },
+            "FontAwesome.Sharp": {
+              "target": "Package",
+              "version": "[6.6.0, )"
+            },
             "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[9.0.9, )"

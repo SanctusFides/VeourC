@@ -4,8 +4,16 @@
              xmlns:local="clr-namespace:Veour"
              StartupUri="/Views/MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="FontFamily" Value="Calibri Light" />
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="Calibri Light" />
+            </Style>
+        </ResourceDictionary>
+
+
+
     </Application.Resources>
 </Application>

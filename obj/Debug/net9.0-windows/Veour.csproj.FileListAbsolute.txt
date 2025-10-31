@@ -59,3 +59,5 @@ C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\MainWindow.g.cs
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\MainWindow.baml
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\App.baml
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Assets\Files\locations-ranked.txt
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Styles\ButtonStyles.baml
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\FontAwesome.Sharp.dll
