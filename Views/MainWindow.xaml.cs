@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Runtime.InteropServices;
-using System.Runtime;
 using Veour.ViewModel;
 using System.Windows.Interop;
 

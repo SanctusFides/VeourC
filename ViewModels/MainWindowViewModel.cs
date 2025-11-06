@@ -1,23 +1,40 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Caliburn.Micro;
+using Microsoft.Extensions.Configuration;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Windows;
+using Veour.Models;
 using Veour.Services;
+using Veour.ViewModels;
 
 namespace Veour.ViewModel
 {
-
     public class MainWindowViewModel
     {
+        // API driver is instanced here and is used to look up and set the lat and long from user input
         readonly ApiDriver _apiDriver = new();
-        public ObservableCollection<string> Cities { get; set; } = [];
         private string? Latitude { get; set; }
         private string? Longitude { get; set; }
 
-        public MainWindowViewModel() 
+        // Cities here holds the list for the autocomplete box that the user looks up their City and State in
+        public ObservableCollection<string> Cities { get; set; } = [];
+
+        // Forecast Collection is what will hold the forecast and be bound to the UI to display the weather data
+        public BindableCollection<Forecast> Forecast { get; set; }
+
+        // When window loads, populate Cities list from the utility class and initialize Forecast collection
+        public MainWindowViewModel()
         {
             Cities = Utility.LoadCityList();
+            // This one below is how it should be, only loading weathearray below for testing purposes
+            Forecast = new BindableCollection<Forecast>();
+            Forecast[] weatherArray = _apiDriver.FetchWeather("29.79453", "-95.384476");
+
+            foreach (var forecast in weatherArray)
+            {
+                Debug.WriteLine(forecast.GetWeatherDay());
+                Forecast.Add(forecast);
+            }
         }
 
 

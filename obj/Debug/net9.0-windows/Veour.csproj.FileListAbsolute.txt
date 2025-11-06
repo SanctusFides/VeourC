@@ -61,3 +61,8 @@ C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\App.baml
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Assets\Files\locations-ranked.txt
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Styles\ButtonStyles.baml
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\FontAwesome.Sharp.dll
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\Forecast.g.cs
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Caliburn.Micro.Core.dll
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\Forecast.baml

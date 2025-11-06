@@ -46,14 +46,12 @@
                                 Margin="0,-1,-1,0"
                                 >
                         <Button x:Name="btnClose"
-                                Style="{StaticResource winBtnClose}"
-                                
+                                Style="{StaticResource winBtnClose}" 
                                 Click="BtnClose_Click">
                             <fa:IconImage Icon="Xmark" Style="{StaticResource winBtnIcon}"/>
                         </Button>
                         <Button x:Name="btnMaximize"
                                 Style="{StaticResource winBtn}"
-                                
                                 Click="BtnMaximize_Click">
                             <fa:IconImage Icon="WindowMaximize" Style="{StaticResource winBtnIcon}"/>
                         </Button>
@@ -127,22 +125,33 @@
                         <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
                     <!-- Forecast Section -->
-                    <Border Grid.Row="0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                        </Grid>
-                        
-                        
-                        
-                    </Border>
+
+                    
+                        <ItemsControl ItemsSource="{Binding Forecast}" AlternationCount="7">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Rows="1" Columns="7"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="White" BorderThickness="1" Padding="10" 
+                                            Grid.Column="{Binding Path=(ItemsControl.AlternationIndex), 
+                                                          RelativeSource={RelativeSource FindAncestor, 
+                                                          AncestorType={x:Type ContentPresenter}}}">
+                                        
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding Temp}" FontSize="16" Foreground="White"/>
+                                            <TextBlock Text="{Binding Date}" FontSize="16" Foreground="White"/>
+                                            <TextBlock Text="{Binding DayName}" FontSize="16" Foreground="White"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+
+
                     <!-- Footer Spacer Section -->
                     <Border Grid.Row="1"
                         Background="Transparent">

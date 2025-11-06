@@ -8,8 +8,22 @@ public class Forecast {
     public double FeelsLikeTemp {get; set;}
     public double Humidity {get; set;}
     public double Precipitation {get; set;}
-    public DateTime Date {get; set;}
-    
+    //public DateTime Date {get; set;}
+
+    private DateTime _date;
+    public DateTime Date 
+    {
+        get { 
+            return _date; 
+        }
+        set { 
+            _date = value;
+            DayName = GetWeatherDay();
+        }
+    }
+
+    public string DayName {get; set;} = string.Empty;
+
     public string WeatherCode {get; set;} = string.Empty;
     public string WeatherDescription {get; set;} = string.Empty;
     
