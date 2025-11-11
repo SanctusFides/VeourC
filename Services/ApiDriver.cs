@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Veour.Models;
 
@@ -19,7 +20,7 @@ public class ApiDriver {
     /// return an entire array of forecast objects.
     /// */
 
-    public void FetchWeather(string lat, string lon)
+    public Forecast[] FetchWeather(string lat, string lon)
     {
         Task<HttpResponseMessage> res = FetchWeatherTask(lat, lon);
         if ( !res.Result.StatusCode.Equals(System.Net.HttpStatusCode.BadRequest)) 
@@ -27,15 +28,17 @@ public class ApiDriver {
             JsonElement weatherJson = ConvertHttpResponseToJson(res.Result);
             Forecast[] weekForecast = BuildForecast(ConvertHttpResponseToJson(res.Result));
             Debug.WriteLine(string.Join(",", weekForecast.Select(f => f.ToString())));
+            return weekForecast;
         } else
         {
             // TODO handle null response
             Debug.WriteLine("No response received from weather API.");
+            return Array.Empty<Forecast>();
         }
     }
 
 
-    private async Task<HttpResponseMessage> FetchWeatherTask(string lat, string lon) {
+    private static async Task<HttpResponseMessage> FetchWeatherTask(string lat, string lon) {
         try
         {
             using HttpClient client = new();
@@ -56,7 +59,7 @@ public class ApiDriver {
     }
 
 
-    private Forecast[] BuildForecast(JsonElement weather)
+    private static Forecast[] BuildForecast(JsonElement weather)
     {
         // Takes in a JsonElement of the full weekly Forecast full of arrays of each property. This parses the Json to extracts each property to pass into the
         // BuildWeekForecast function which will iterate through for each day's values
@@ -79,7 +82,7 @@ public class ApiDriver {
                                  weatherCode, windDirection, windSpeed);
     }
 
-    private Forecast[] BuildWeekForecast(JsonElement current, JsonElement time, JsonElement avgTemp, 
+    private static Forecast[] BuildWeekForecast(JsonElement current, JsonElement time, JsonElement avgTemp, 
                                          JsonElement maxTemp, JsonElement minTemp, JsonElement feelsLikeTemp,
                                          JsonElement humidity,JsonElement precip, JsonElement weatherCode,
                                          JsonElement windDirection, JsonElement windSpeed)
@@ -123,7 +126,7 @@ public class ApiDriver {
     }
 
 
-    public string CreateWeatherApiUrl(string lat, string lon)
+    public static string CreateWeatherApiUrl(string lat, string lon)
     {
         return "https://api.open-meteo.com/v1/forecast?latitude=" +
                 lat + "&longitude=" + lon +

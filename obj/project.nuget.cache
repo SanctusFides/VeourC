@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yPAmB8o7oFU=",
+  "dgSpecHash": "e1ZcqxW7OHo=",
   "success": true,
   "projectFilePath": "C:\\Users\\John1\\Code\\C#\\Veour\\Veour.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\John1\\.nuget\\packages\\caliburn.micro.core\\5.0.258\\caliburn.micro.core.5.0.258.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.data.sqlite\\9.0.9\\microsoft.data.sqlite.9.0.9.nupkg.sha512",
@@ -12,6 +13,8 @@
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.9\\microsoft.extensions.configuration.abstractions.9.0.9.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.9\\microsoft.extensions.configuration.fileextensions.9.0.9.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.configuration.json\\9.0.9\\microsoft.extensions.configuration.json.9.0.9.nupkg.sha512",
+    "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.0-rc.2.25502.107\\microsoft.extensions.dependencyinjection.10.0.0-rc.2.25502.107.nupkg.sha512",
+    "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0-rc.2.25502.107\\microsoft.extensions.dependencyinjection.abstractions.10.0.0-rc.2.25502.107.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.9\\microsoft.extensions.fileproviders.abstractions.9.0.9.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\9.0.9\\microsoft.extensions.fileproviders.physical.9.0.9.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\9.0.9\\microsoft.extensions.filesystemglobbing.9.0.9.nupkg.sha512",
