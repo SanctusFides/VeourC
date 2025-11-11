@@ -37,7 +37,7 @@
                         <!-- Content Row -->
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <!-- Windows Buttons -->
+                    <!-- Windows Min/Max/Close Section -->
                     <StackPanel x:Name="pnlControlBar"
                                 Grid.Row="0"
                                 Orientation="Horizontal"
@@ -61,38 +61,37 @@
                                 Click="BtnMinimize_Click">
                             <fa:IconImage Icon="WindowMinimize" Style="{StaticResource winBtnIcon}"/>
                         </Button>
-                       
-                        
-                        
-                     
                     </StackPanel>
-                    <!-- Content Section -->
+                    
+                    <!-- Section for the top menu bar with the City/State input box and search button -->
                     <StackPanel Grid.Row="1"
                         Orientation="Horizontal"
                         Background="#001945"
-                        Height="100" Width="1260">
+                         Width="1260">
 
                         <Image Source="\Assets\Images\logo.png" Height="60" Width="200"
                        Margin="60,0,105,0" VerticalAlignment="Center"/>
 
-                        <Label x:Name="label" Content="Enter Your Location" Foreground="White"
-                       FontSize="24" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                        <Label x:Name="label" Content="Enter Your Location" 
+                               VerticalAlignment="Center" Margin="0,0,8,0"
+                               FontSize="24" Foreground="White" FontFamily="Calibri Light"/>
 
-                        <ComboBox x:Name="CityStateInput"
-                          IsEditable="True"
-                          Width="223" Height="28" Padding="5,0,0,0"
-                          FontSize="18" Margin="0,0,8,0"
-                          VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" 
-                          AutomationProperties.HelpText="Enter your city and state here">
-                            <ComboBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <VirtualizingStackPanel/>
-                                </ItemsPanelTemplate>
-                            </ComboBox.ItemsPanel>
-                        </ComboBox>
+                        <Border CornerRadius="2" BorderThickness="1" Background="Transparent" Width="223" Height="28" 
+                                Margin="0,0,8,0" HorizontalAlignment="Stretch" BorderBrush="White" > 
+                            <ComboBox x:Name="CityStateInput"
+                              IsEditable="True"
+                              FontSize="18" FontFamily="Calibri Light"
+                              VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" 
+                              AutomationProperties.HelpText="Enter your city and state here">
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                        </Border>
 
-
-                        <Button x:Name="SearchButton" Content="Search" Height="32" Padding="5" Width="64" FontSize="18" 
+                        <Button x:Name="SearchButton" Content="Search" Height="32" Width="64" Padding="5" FontSize="18" FontFamily="Calibri Light"
                         Click="SearchButton_Click">
                             <Button.Resources>
                                 <Style TargetType="Border">
@@ -104,7 +103,7 @@
                 </Grid>
             </Border>
 
-
+            <!-- Main Content Section -->
             <Border Grid.Row="1" CornerRadius="0,0,10,10">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -116,46 +115,86 @@
                         <GradientStop Color="#254b8f" Offset=".85"/>
                     </LinearGradientBrush>
                 </Border.Background>
-
                 <Grid>
                     <Grid.RowDefinitions>
                         <!-- Forecast Section -->
                         <RowDefinition Height="*"/>
                         <!-- Empty Spacer @ Bottom -->
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="10"/>
                     </Grid.RowDefinitions>
-                    <!-- Forecast Section -->
-
                     
+                    <!-- Forecast Section -->
+                    <Viewbox Stretch="Uniform">
                         <ItemsControl ItemsSource="{Binding Forecast}" AlternationCount="7">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid Rows="1" Columns="7"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Rows="1" Columns="7"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="White" BorderThickness="1" Padding="10" 
+                                    <Border BorderBrush="White" BorderThickness="0,0,1,0" MinHeight="550" MinWidth="180"
                                             Grid.Column="{Binding Path=(ItemsControl.AlternationIndex), 
-                                                          RelativeSource={RelativeSource FindAncestor, 
-                                                          AncestorType={x:Type ContentPresenter}}}">
-                                        
+                                                            RelativeSource={RelativeSource FindAncestor, 
+                                                            AncestorType={x:Type ContentPresenter}}}">
+
                                         <StackPanel Orientation="Vertical">
-                                            <TextBlock Text="{Binding Temp}" FontSize="16" Foreground="White"/>
-                                            <TextBlock Text="{Binding Date}" FontSize="16" Foreground="White"/>
-                                            <TextBlock Text="{Binding DayName}" FontSize="16" Foreground="White"/>
+
+                                            <TextBlock Text="{Binding DayName}" HorizontalAlignment="Center" Padding="0,15,0,15"
+                                                       FontSize="20" FontWeight="Bold" Foreground="White"/>
+
+                                            <Separator Background="White" Margin="36,0,36,0"/>
+
+                                            <Image Source="{Binding WeatherImage}" Height="95" Width="100" 
+                                                   HorizontalAlignment="Center" Margin="0,15,0,10"/>
+
+                                            <TextBlock Text="{Binding TempString}" HorizontalAlignment="Center" Margin="0,0,0,10"
+                                                       FontSize="40" FontWeight="Bold"  Foreground="White"/>
+
+                                            <TextBlock Text="Current" HorizontalAlignment="Center" Margin="0,0,0,5"
+                                                       FontSize="16" FontWeight="SemiBold" Foreground="White" />
+
+                                            <TextBlock Text="{Binding WeatherDescription}" FontSize="20" Margin="0,0,0,10"
+                                                       FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
+
+                                            <Separator Background="White" Margin="36,0,36,0"/>
+
+                                            <StackPanel Orientation="Vertical" Margin="30,15,0,15">
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <Label Content="High: " Foreground="White"/>
+                                                    <TextBlock Text="{Binding HighString}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <Label Content="Low: " Foreground="White"/>
+                                                    <TextBlock Text="{Binding LowString}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Label Content="Feels Like: " Foreground="White"/>
+                                                    <TextBlock Text="{Binding FeelsLikeTempString}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Vertical" Margin="30,15,0,0">
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <Label Content="Precipitation: " Foreground="White"/>
+                                                    <TextBlock Text="{Binding PrecipitationString}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <Label Content="Humidity: " Foreground="White"/>
+                                                    <TextBlock Text="{Binding HumidityString}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Label Content="Wind: " Foreground="White"/>
+                                                    <Image Source="{Binding WindDirectionImage}" HorizontalAlignment="Center" Width="25" Height="19"/>
+                                                    <TextBlock Text="{Binding WindSpeedString}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Border>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-
-
-
-                    <!-- Footer Spacer Section -->
-                    <Border Grid.Row="1"
-                        Background="Transparent">
-                    </Border>
+                    </Viewbox>
                 </Grid>
             </Border>
         </Grid>

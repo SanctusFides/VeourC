@@ -26,13 +26,12 @@ namespace Veour.ViewModel
         public MainWindowViewModel()
         {
             Cities = Utility.LoadCityList();
-            // This one below is how it should be, only loading weathearray below for testing purposes
             Forecast = new BindableCollection<Forecast>();
-            Forecast[] weatherArray = _apiDriver.FetchWeather("29.79453", "-95.384476");
 
+            // These lines below are only for testing purposes, to be removed later
+            Forecast[] weatherArray = _apiDriver.FetchWeather("29.79453", "-95.384476");
             foreach (var forecast in weatherArray)
             {
-                Debug.WriteLine(forecast.GetWeatherDay());
                 Forecast.Add(forecast);
             }
         }

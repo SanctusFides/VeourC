@@ -11,7 +11,24 @@
   <ItemGroup>
     <None Remove="Assets\Files\locations-ranked.txt" />
     <None Remove="Assets\Files\locations.txt" />
+    <None Remove="Assets\Images\Arrows\east.png" />
+    <None Remove="Assets\Images\Arrows\north.png" />
+    <None Remove="Assets\Images\Arrows\northeast.png" />
+    <None Remove="Assets\Images\Arrows\northwest.png" />
+    <None Remove="Assets\Images\Arrows\south.png" />
+    <None Remove="Assets\Images\Arrows\southeast.png" />
+    <None Remove="Assets\Images\Arrows\southwest.png" />
+    <None Remove="Assets\Images\Arrows\west.png" />
+    <None Remove="Assets\Images\error.png" />
     <None Remove="Assets\Images\logo.png" />
+    <None Remove="Assets\Images\Weather\cloudy.png" />
+    <None Remove="Assets\Images\Weather\drizzle.png" />
+    <None Remove="Assets\Images\Weather\fog.png" />
+    <None Remove="Assets\Images\Weather\partly-cloudy.png" />
+    <None Remove="Assets\Images\Weather\rain.png" />
+    <None Remove="Assets\Images\Weather\snow.png" />
+    <None Remove="Assets\Images\Weather\storm.png" />
+    <None Remove="Assets\Images\Weather\sun.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,9 +52,60 @@
     <Resource Include="Assets\Files\locations.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Assets\Images\Arrows\east.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Arrows\north.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Arrows\northeast.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Arrows\northwest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Arrows\south.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Arrows\southeast.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Arrows\southwest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Arrows\west.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\error.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Assets\Images\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Assets\Images\Weather\cloudy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Weather\drizzle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Weather\fog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Weather\partly-cloudy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Weather\rain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Weather\snow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Weather\storm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Weather\sun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -22,6 +22,8 @@ public partial class MainWindow : Window
         this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
     }
+
+
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
         _vm.HandleSearch(CityStateInput.Text);
@@ -30,8 +32,6 @@ public partial class MainWindow : Window
 
     [DllImport("user32.dll")]
     public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
-
-
     private void PnlControlBar_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
         WindowInteropHelper helper = new WindowInteropHelper(this);

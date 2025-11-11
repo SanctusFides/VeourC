@@ -1,15 +1,43 @@
-﻿namespace Veour.Models;
+﻿using System.Drawing;
+using System.Windows.Media.Imaging;
+using Veour.Services;
+
+namespace Veour.Models;
 
 public class Forecast {
 
     public double Temp {get; set;}
-    public double High {get; set;}
-    public double Low {get; set;}
-    public double FeelsLikeTemp {get; set;}
-    public double Humidity {get; set;}
-    public double Precipitation {get; set;}
-    //public DateTime Date {get; set;}
+    public string TempString 
+    {
+        get { return Temp + "°"; }
+    }
 
+    public double High {get; set;}
+    public string HighString { 
+        get { return High + "°"; }
+    }
+
+    public double Low {get; set;}
+    public string LowString { 
+        get { return Low + "°"; }
+    }
+
+    public double FeelsLikeTemp {get; set;}
+    public string FeelsLikeTempString { 
+        get { return FeelsLikeTemp + "°"; }
+    }
+
+    public double Humidity {get; set;}
+    public string HumidityString { 
+        get { return Humidity + "%"; }
+    }
+
+    public double Precipitation {get; set;}
+    public string PrecipitationString { 
+        get { return Precipitation + "%"; }
+    }
+
+    // Immediately convert date to day name when setting
     private DateTime _date;
     public DateTime Date 
     {
@@ -21,44 +49,54 @@ public class Forecast {
             DayName = GetWeatherDay();
         }
     }
-
     public string DayName {get; set;} = string.Empty;
 
-    public string WeatherCode {get; set;} = string.Empty;
+
+    // immediately map the weather code to both the description and the image when setting
+    private string _weatherCode = string.Empty;
+    public string WeatherCode 
+    {
+        get { 
+            return _weatherCode;
+        }
+        set { 
+            _weatherCode = value;
+            WeatherDescription = Utility.MapWeatherCodeToDescription(WeatherCode);
+            WeatherImage = Utility.GetWeatherImage(WeatherCode);
+        }
+    }
+
+    public BitmapImage WeatherImage { get; set; }
+
     public string WeatherDescription {get; set;} = string.Empty;
     
-    public double WindSpeed {get; set;}
-    public int WindDirection {get; set;}
+    public double WindSpeed { get; set; }
+    public string WindSpeedString 
+    {
+        get { return WindSpeed + " mp/h"; }
+    }
+
+    private int _windDirection;
+    public int WindDirection { 
+        get { 
+            return _windDirection; 
+        }
+        set { 
+            _windDirection = value;
+            WindDirectionImage = Utility.GetWindDirectionArrowImage(WindDirection);
+        }
+    }
+    public BitmapImage WindDirectionImage { get; set; }
     
+
     public Forecast() {}
+
+
 
     public string GetWeatherDay()
     {
-        return Date.DayOfWeek.ToString();
+        return Date.DayOfWeek.ToString().ToUpper();
     }
-    
-    public string GetTempString() {
-        return Temp +"°";
-    }
-    public string GetHighTempString() {
-        return High +"°";
-    }
-    public string GetLowTempString() {
-        return Low +"°";
-    }
-    public string GetFeelsLikeTempString() {
-        return FeelsLikeTemp +"°";
-    }
-    public string GetHumidityString() {
-        return Humidity +"%";
-    }
-    public string GetPrecipitationString() {
-        return Precipitation +"%";
-    }
-    public string GetWindSpeedString() {
-        return WindSpeed +" mp/h";
-    }
-    
     
     public override string ToString()
     {
