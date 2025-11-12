@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WelcomeView" Height="550" Width="1260">
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock Text="Welcome, please enter your zipcode above"
+        <TextBlock Text="Welcome, enter your City and State above"
                    FontSize="48" Foreground="White"></TextBlock>
     </StackPanel>
 </Page>

@@ -1,5 +1,4 @@
-﻿using Caliburn.Micro;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Veour.Models;
-using Veour.Services;
-using Veour.ViewModels;
 
 namespace Veour.Views
 {
     /// <summary>
-    /// Interaction logic for ForecastView.xaml
+    /// Interaction logic for Forecast.xaml
     /// </summary>
-    public partial class ForecastView : Page
+    public partial class ForecastViewOld : UserControl
     {
-        readonly ForecastViewModel _vm;
-
-        public ForecastView(BindableCollection<Forecast> forecast)
+        public ForecastViewOld()
         {
             InitializeComponent();
-            this._vm = new ForecastViewModel();
-            DataContext = _vm;
-
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿using System.Windows;
-using System.Runtime.InteropServices;
-using Veour.ViewModel;
+﻿using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Interop;
+using Veour.ViewModel;
+using Veour.Views;
 
 namespace Veour;
 
@@ -21,6 +22,10 @@ public partial class MainWindow : Window
         CityStateInput.ItemsSource = _vm.Cities;
         this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
+        WelcomeView welcomeView = new WelcomeView();
+        contentFrame.Content = welcomeView;
+        //ForecastView forecastView = new ForecastView(_vm.Forecast);
+        //contentFrame.Content = forecastView;
     }
 
 
