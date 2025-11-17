@@ -1,16 +1,15 @@
 ﻿using Caliburn.Micro;
 using Microsoft.Extensions.Configuration;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using Veour.Models;
 using Veour.Services;
-using Veour.ViewModels;
-using Veour.Views;
 
-namespace Veour.ViewModel
+namespace Veour.ViewModels
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel 
     {
         // API driver is instanced here and is used to look up and set the lat and long from user input
         readonly ApiDriver _apiDriver = new();
@@ -20,23 +19,31 @@ namespace Veour.ViewModel
         // Cities here holds the list for the autocomplete box that the user looks up their City and State in
         public ObservableCollection<string> Cities { get; set; } = [];
 
-        // Forecast Collection is what will hold the forecast and be bound to the UI to display the weather data
+
+        // Forecast Collection is what will hold the forecast and be bound to the UI to display the weather data'
+        //private BindableCollection<Forecast> _forecast;
         public BindableCollection<Forecast> Forecast { get; set; }
+        //public BindableCollection<Forecast> Forecast
+        //{
+        //    get
+        //    {
+        //        return _forecast;
+        //    }
+        //    set
+        //    {
+        //        _forecast = value;
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Forecast)));
+        //    }
+        //}
+        //public event PropertyChangedEventHandler? PropertyChanged;
 
         // When window loads, populate Cities list from the utility class and initialize Forecast collection
         public MainWindowViewModel()
         {
+            //_forecast = []; 
+            Forecast = []; 
             Cities = Utility.LoadCityList();
-            Forecast = new BindableCollection<Forecast>();
-
-            // These lines below are only for testing purposes, to be removed later
-            Forecast[] weatherArray = _apiDriver.FetchWeather("29.79453", "-95.384476");
-            foreach (var forecast in weatherArray)
-            {
-                Forecast.Add(forecast);
-            }
         }
-
 
 
         public void HandleSearch(string cityState)
@@ -49,7 +56,12 @@ namespace Veour.ViewModel
                 // If valid coordinates are retrieved, fetch weather data from API
                 if (!string.IsNullOrEmpty(Latitude) && !string.IsNullOrEmpty(Longitude))
                 {
-                    _apiDriver.FetchWeather(Latitude, Longitude);
+                    Forecast[] forecasts = _apiDriver.FetchWeather(Latitude, Longitude);
+                    foreach (var forecast in forecasts)
+                    {
+                        //_forecast.Add(forecast);
+                        Forecast.Add(forecast);
+                    }
                 }
                 else
                 {
@@ -79,7 +91,7 @@ namespace Veour.ViewModel
                 .Build();
             // Retrieve latitude and longitude from SQL database using GetLatAndLong method which as a predefined query
             SqlDataAccess dataAccess = new SqlDataAccess(configuration);
-            Task<String[]> res = dataAccess.GetLatAndLong(city, state);
+            Task<string[]> res = dataAccess.GetLatAndLong(city, state);
             try
             {
                 // Ensure valid coordinates are retrieved and the latitude starts with a negative value

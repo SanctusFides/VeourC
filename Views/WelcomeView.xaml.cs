@@ -17,7 +17,7 @@ namespace Veour.Views
     /// <summary>
     /// Interaction logic for WelcomeView.xaml
     /// </summary>
-    public partial class WelcomeView : Page
+    public partial class WelcomeView : UserControl
     {
         public WelcomeView()
         {

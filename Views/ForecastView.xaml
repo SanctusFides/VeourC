@@ -1,15 +1,16 @@
-﻿<Page x:Class="Veour.Views.ForecastView"
+﻿<UserControl x:Class="Veour.Views.ForecastView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Veour.Views"
+      xmlns:local="clr-namespace:Veour.Views" 
+      xmlns:viewmodels="clr-namespace:Veour.ViewModels" 
+      d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ForecastView">
-
+      d:DesignHeight="450" d:DesignWidth="800">
+    
     <Viewbox Stretch="Uniform">
-        <ItemsControl ItemsSource="{Binding Forecast}" AlternationCount="7">
+        <ItemsControl ItemsSource="{Binding Forecast, UpdateSourceTrigger=PropertyChanged}" AlternationCount="7">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="1" Columns="7"/>
@@ -18,28 +19,28 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="White" BorderThickness="0,0,1,0" MinHeight="550" MinWidth="180"
-                         Grid.Column="{Binding Path=(ItemsControl.AlternationIndex), 
-                                         RelativeSource={RelativeSource FindAncestor, 
-                                         AncestorType={x:Type ContentPresenter}}}">
+                             Grid.Column="{Binding Path=(ItemsControl.AlternationIndex), 
+                                             RelativeSource={RelativeSource FindAncestor, 
+                                             AncestorType={x:Type ContentPresenter}}}">
 
                         <StackPanel Orientation="Vertical">
 
-                            <TextBlock Text="{Binding DayName}" HorizontalAlignment="Center" Padding="0,15,0,15"
-                                    FontSize="20" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock Text="{Binding DayName}" x:Name="dayNameString"  HorizontalAlignment="Center" Padding="0,15,0,15"
+                                        FontSize="20" FontWeight="Bold" Foreground="White"/>
 
                             <Separator Background="White" Margin="36,0,36,0"/>
 
                             <Image Source="{Binding WeatherImage}" Height="95" Width="100" 
-                                HorizontalAlignment="Center" Margin="0,15,0,10"/>
+                                    HorizontalAlignment="Center" Margin="0,15,0,10"/>
 
                             <TextBlock Text="{Binding TempString}" HorizontalAlignment="Center" Margin="0,0,0,10"
-                                    FontSize="40" FontWeight="Bold"  Foreground="White"/>
+                                        FontSize="40" FontWeight="Bold"  Foreground="White"/>
 
                             <TextBlock Text="Current" HorizontalAlignment="Center" Margin="0,0,0,5"
-                                    FontSize="16" FontWeight="SemiBold" Foreground="White" />
+                                        FontSize="16" FontWeight="SemiBold" Foreground="White" />
 
                             <TextBlock Text="{Binding WeatherDescription}" FontSize="20" Margin="0,0,0,10"
-                                    FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
+                                        FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
 
                             <Separator Background="White" Margin="36,0,36,0"/>
 
@@ -79,4 +80,4 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </Viewbox>
-</Page>
+</UserControl>

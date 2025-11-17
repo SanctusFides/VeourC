@@ -1,10 +1,11 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Interop;
-using Veour.ViewModel;
-using Veour.Views;
+using Veour.ViewModels;
 
-namespace Veour;
+namespace Veour.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
@@ -23,15 +24,19 @@ public partial class MainWindow : Window
         this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
         WelcomeView welcomeView = new WelcomeView();
-        contentFrame.Content = welcomeView;
-        //ForecastView forecastView = new ForecastView(_vm.Forecast);
-        //contentFrame.Content = forecastView;
+        contentBox.Content = welcomeView;
     }
-
 
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
         _vm.HandleSearch(CityStateInput.Text);
+         DisplayForecastView();
+    }
+
+    public void DisplayForecastView()
+    {
+        UserControl forecast = new ForecastView();
+        contentBox.Content = forecast;
     }
 
 
