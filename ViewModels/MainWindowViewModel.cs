@@ -19,28 +19,11 @@ namespace Veour.ViewModels
         // Cities here holds the list for the autocomplete box that the user looks up their City and State in
         public ObservableCollection<string> Cities { get; set; } = [];
 
-
         // Forecast Collection is what will hold the forecast and be bound to the UI to display the weather data'
-        //private BindableCollection<Forecast> _forecast;
         public BindableCollection<Forecast> Forecast { get; set; }
-        //public BindableCollection<Forecast> Forecast
-        //{
-        //    get
-        //    {
-        //        return _forecast;
-        //    }
-        //    set
-        //    {
-        //        _forecast = value;
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Forecast)));
-        //    }
-        //}
-        //public event PropertyChangedEventHandler? PropertyChanged;
-
         // When window loads, populate Cities list from the utility class and initialize Forecast collection
         public MainWindowViewModel()
         {
-            //_forecast = []; 
             Forecast = []; 
             Cities = Utility.LoadCityList();
         }
@@ -51,6 +34,11 @@ namespace Veour.ViewModels
             // TODO validate input format - lift the current formatting out of SetCoords and move it into a validator here
             try
             {
+                // If there is a previous forecast, clear it to an empty array or else a previous will load on UI
+                if (Forecast.Any())
+                {
+                    Forecast = [];
+                }
                 // Set coordinates by looking up city and state in SQL database
                 SetCoordinates(cityState);
                 // If valid coordinates are retrieved, fetch weather data from API
@@ -59,7 +47,6 @@ namespace Veour.ViewModels
                     Forecast[] forecasts = _apiDriver.FetchWeather(Latitude, Longitude);
                     foreach (var forecast in forecasts)
                     {
-                        //_forecast.Add(forecast);
                         Forecast.Add(forecast);
                     }
                 }

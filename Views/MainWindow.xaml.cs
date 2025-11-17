@@ -20,9 +20,12 @@ public partial class MainWindow : Window
         InitializeComponent();
         this._vm = new MainWindowViewModel();
         DataContext = _vm;
+
+        // Binds the city list to the ComboBox's autocomplete list
         CityStateInput.ItemsSource = _vm.Cities;
         this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
+        // Load the welcome screen telling user to enter their location
         WelcomeView welcomeView = new WelcomeView();
         contentBox.Content = welcomeView;
     }
@@ -35,8 +38,10 @@ public partial class MainWindow : Window
 
     public void DisplayForecastView()
     {
+
         UserControl forecast = new ForecastView();
         contentBox.Content = forecast;
+        
     }
 
 
