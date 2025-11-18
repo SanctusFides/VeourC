@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Veour")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc70d77550a547b6c9112c7f183665ec2b4f23ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c5cddf356caffc3e08b75b33f9e3ac7d09dbe01")]
 [assembly: System.Reflection.AssemblyProductAttribute("Veour")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Veour")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

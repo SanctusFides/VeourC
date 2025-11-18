@@ -1,7 +1,6 @@
 ﻿using Caliburn.Micro;
 using Microsoft.Extensions.Configuration;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using Veour.Models;
@@ -45,9 +44,22 @@ namespace Veour.ViewModels
                 if (!string.IsNullOrEmpty(Latitude) && !string.IsNullOrEmpty(Longitude))
                 {
                     Forecast[] forecasts = _apiDriver.FetchWeather(Latitude, Longitude);
-                    foreach (var forecast in forecasts)
+
+                    //    // WHY DOES QUEENS NY REPORT THAT THERE ARE NO COORDS? I VERIFY THEY EXIST IN THE DB
+                    //    // 20	queens	new+york	NY	40.7498	-73.7976 so check the city+state input results and find out what's going 
+
+                    // Loops through the week's forecast and sets the values on the proper days for their specific day's to display
+                    for (int i = 0; i < 7; i++)
                     {
-                        Forecast.Add(forecast);
+                        if (i == 0)
+                        {
+                            forecasts[i].CurrentDay = true;
+                        }
+                        if (i >= 6)
+                        {
+                            forecasts[i].FinalDay = true;
+                        }
+                        Forecast.Add(forecasts[i]);
                     }
                 }
                 else

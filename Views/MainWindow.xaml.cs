@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
@@ -38,13 +37,12 @@ public partial class MainWindow : Window
 
     public void DisplayForecastView()
     {
-
-        UserControl forecast = new ForecastView();
+        UserControl forecast = new ForecastView();        
         contentBox.Content = forecast;
-        
     }
 
 
+    // All of the code below is related to the min/max/close windows buttons in the top right & the drag to move behavior for whole window
     [DllImport("user32.dll")]
     public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
     private void PnlControlBar_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

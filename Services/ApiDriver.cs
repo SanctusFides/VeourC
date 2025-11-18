@@ -28,7 +28,7 @@ public class ApiDriver {
             JsonElement weatherJson = ConvertHttpResponseToJson(res.Result);
             Forecast[] weekForecast = BuildForecast(ConvertHttpResponseToJson(res.Result));
             // TODO Remove Debug line
-            Debug.WriteLine(string.Join(",", weekForecast.Select(f => f.ToString())));
+            //Debug.WriteLine(string.Join(",", weekForecast.Select(f => f.ToString())));
             return weekForecast;
         } else
         {
@@ -96,7 +96,6 @@ public class ApiDriver {
             // The API puts current day's data in a separate object so we have the handle the first day differently while values after the Else aren't separated
             if (i == 0)
             {
-                Debug.WriteLine(current.ToString());
                 dailyForecast.Temp = current.GetProperty("temperature_2m").GetDouble();
                 dailyForecast.FeelsLikeTemp = current.GetProperty("apparent_temperature").GetDouble();
                 dailyForecast.Humidity = current.GetProperty("relative_humidity_2m").GetDouble();

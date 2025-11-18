@@ -1,5 +1,6 @@
 ﻿using System.Windows.Controls;
-using Veour.ViewModels;
+using System.Windows;
+using System.Diagnostics;
 
 namespace Veour.Views
 {
@@ -8,7 +9,6 @@ namespace Veour.Views
     /// </summary>
     public partial class ForecastView : UserControl
     {
-
         public ForecastView()
         {
             InitializeComponent();
