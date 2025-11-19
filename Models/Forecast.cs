@@ -89,15 +89,7 @@ public class Forecast {
     public BitmapImage? WindDirectionImage { get; set; }
 
 
-    // If the day is the last of the forecast, then this will be true.
-    // The ForecastView userControl has data triggers to apply border if this value is false. True == no style applied
-    public bool FinalDay { get; set; } = false;
-    // If CurrentDay == True, data Triggers will set UI text to Current, else display Average
-    public bool CurrentDay { get; set; } = false;
-
-
     public Forecast() {}
-
 
 
     public string GetWeatherDay()

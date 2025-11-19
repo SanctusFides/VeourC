@@ -48,18 +48,9 @@ namespace Veour.ViewModels
                     //    // WHY DOES QUEENS NY REPORT THAT THERE ARE NO COORDS? I VERIFY THEY EXIST IN THE DB
                     //    // 20	queens	new+york	NY	40.7498	-73.7976 so check the city+state input results and find out what's going 
 
-                    // Loops through the week's forecast and sets the values on the proper days for their specific day's to display
-                    for (int i = 0; i < 7; i++)
+                    foreach (Forecast forecast in forecasts)
                     {
-                        if (i == 0)
-                        {
-                            forecasts[i].CurrentDay = true;
-                        }
-                        if (i >= 6)
-                        {
-                            forecasts[i].FinalDay = true;
-                        }
-                        Forecast.Add(forecasts[i]);
+                        Forecast.Add(forecast);
                     }
                 }
                 else
@@ -77,6 +68,8 @@ namespace Veour.ViewModels
 
         private void SetCoordinates(string cityState)
         {
+            Debug.WriteLine(cityState);
+
             var parts = cityState.ToLower().Split(',');
             if (parts.Length != 2)
             {

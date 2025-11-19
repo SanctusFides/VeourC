@@ -10,7 +10,7 @@
       d:DesignHeight="450" d:DesignWidth="800">
     
     <Viewbox Stretch="Uniform">
-        <ItemsControl ItemsSource="{Binding Forecast, UpdateSourceTrigger=PropertyChanged}" AlternationCount="7">
+        <ItemsControl ItemsSource="{Binding Forecast}" AlternationCount="7">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="1" Columns="7"/>
@@ -18,14 +18,9 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="White"  MinHeight="550" MinWidth="180" x:Name="ForecastBorder"
-                             Grid.Column="{Binding Path=(ItemsControl.AlternationIndex), 
-                                             RelativeSource={RelativeSource FindAncestor, 
-                                             AncestorType={x:Type ContentPresenter}}}">
-                        <StackPanel Orientation="Vertical">
-                            
-                            <!-- TODO MUST DELETE THIS TEST BOX -->
-                            <TextBlock x:Name="test" Foreground="White"></TextBlock>
+                    <Border BorderBrush="White"  MinHeight="550" MinWidth="180" x:Name="ForecastBorder">
+
+                            <StackPanel Orientation="Vertical">
 
                             <TextBlock Text="{Binding DayName}" x:Name="dayNameString"  HorizontalAlignment="Center" Padding="0,15,0,15"
                                         FontSize="20" FontWeight="Bold" Foreground="White"/>
@@ -81,19 +76,38 @@
                     <DataTemplate.Triggers>
                         <!-- 
                         -->
-                        <DataTrigger Binding="{Binding Path=(ItemsControl.AlternationIndex), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}}" Value="0">
-                            <Setter TargetName="test" Property="Text" Value="{Binding Path=(ItemsControl.AlternationIndex), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}}"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding FinalDay}" Value="false">
-                            <Setter TargetName="ForecastBorder" Property="BorderThickness" Value="0,0,1,0"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding CurrentDay}" Value="false">
-                            <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding CurrentDay}" Value="true">
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                            <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
                             <Setter TargetName="DayStatus" Property="Text" Value="Current"/>
-                        </DataTrigger>
-                        
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
+                            <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
+
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="2">
+                            <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
+                            <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
+
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="3">
+                            <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
+                            <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
+
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="4">
+                            <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
+                            <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
+
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="5">
+                            <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
+                            <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="6">
+                            <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
+                        </Trigger>
+
                     </DataTemplate.Triggers>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
