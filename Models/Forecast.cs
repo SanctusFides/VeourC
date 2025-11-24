@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media.Imaging;
 using Veour.Services;
 
 namespace Veour.Models;
@@ -61,8 +60,8 @@ public class Forecast {
         }
         set { 
             _weatherCode = value;
-            WeatherDescription = Utility.MapWeatherCodeToDescription(WeatherCode);
-            WeatherImage = Utility.GetWeatherImage(WeatherCode);
+            WeatherDescription = UtilityDriver.MapWeatherCodeToDescription(WeatherCode);
+            WeatherImage = UtilityDriver.GetWeatherImage(WeatherCode);
         }
     }
 
@@ -83,7 +82,7 @@ public class Forecast {
         }
         set { 
             _windDirection = value;
-            WindDirectionImage = Utility.GetWindDirectionArrowImage(WindDirection);
+            WindDirectionImage = UtilityDriver.GetWindDirectionArrowImage(WindDirection);
         }
     }
     public BitmapImage? WindDirectionImage { get; set; }

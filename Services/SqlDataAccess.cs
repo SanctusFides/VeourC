@@ -1,5 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics;
+using System.IO;
 
 namespace Veour.Services {
     public class SqlDataAccess {
@@ -11,7 +13,10 @@ namespace Veour.Services {
         public SqlDataAccess(IConfiguration configuration)
         {
             this._configuration = configuration;
-            _connectionString = "Data Source="+_configuration["SqlString"];
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string filepath = Path.Combine(currentDirectory, @"Assets\Files\localdb.db");
+            Debug.WriteLine(filepath);
+            _connectionString = "Data Source="+ filepath;
         }
 
         public async Task<string[]> GetLatAndLong(string city, string state)

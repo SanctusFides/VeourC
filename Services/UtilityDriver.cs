@@ -1,13 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Windows.Media.Imaging;
-using Veour.Services;
 
 namespace Veour.Services
 {
-    public static class Utility
+    public static class UtilityDriver
     {
 
         // Loads the city list from a text file and returns it as an ObservableCollection to be used for autocomplete
@@ -134,15 +132,15 @@ namespace Veour.Services
                 "51" or "53" or "55" => "Drizzle",
                 "56" or "57" => "Freezing Drizzle",
                 "61" => "Slight Rain",
-                "63" => "Moderate Rain",
+                "63" => "Rain",
                 "65" => "Heavy Rain",
                 "66" or "67" => "Freezing Rain",
                 "71" => "Slight Snow",
-                "73" => "Moderate Snow",
+                "73" => "Snow",
                 "75" => "Heavy Snow",
                 "77" => "Snow Grains",
                 "80" => "Slight Showers",
-                "81" => "Moderate Showers",
+                "81" => "Showers",
                 "82" => "Heavy Shower",
                 "85" or "86" => "Snow Showers",
                 "95" => "Thunderstorm",

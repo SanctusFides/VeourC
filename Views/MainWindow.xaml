@@ -67,22 +67,23 @@
                     <StackPanel Grid.Row="1"
                         Orientation="Horizontal"
                         Background="#001945"
-                         Width="1260">
+                        Width="1260">
 
                         <Image Source="\Assets\Images\logo.png" Height="60" Width="200"
-                       Margin="60,0,105,0" VerticalAlignment="Center"/>
+                         Margin="45,0,105,0" VerticalAlignment="Center"/>
 
                         <Label x:Name="label" Content="Enter Your Location" 
                                VerticalAlignment="Center" Margin="0,0,8,0"
                                FontSize="24" Foreground="White" FontFamily="Calibri Light"/>
 
-                        <Border CornerRadius="2" BorderThickness="1" Background="Transparent" Width="223" Height="28" 
+                        <Border CornerRadius="2" BorderThickness="1" Background="Transparent" Width="270" Height="28" 
                                 Margin="0,0,8,0" HorizontalAlignment="Stretch" BorderBrush="White" > 
-                            <ComboBox x:Name="CityStateInput"
-                              IsEditable="True"
-                              FontSize="18" FontFamily="Calibri Light"
-                              VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" 
-                              AutomationProperties.HelpText="Enter your city and state here">
+                            <ComboBox 
+                                x:Name="CityStateInput"
+                                IsEditable="True"
+                                FontSize="18" FontFamily="Calibri Light"
+                                VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" 
+                                AutomationProperties.HelpText="Enter your city and state here">
                                 <ComboBox.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <VirtualizingStackPanel/>
@@ -92,7 +93,7 @@
                         </Border>
 
                         <Button x:Name="SearchButton" Content="Search" Height="32" Width="64" Padding="5" FontSize="18" FontFamily="Calibri Light"
-                        Click="SearchButton_Click">
+                                Click="SearchButton_Click">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="3"/>

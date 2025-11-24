@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Veour.Models;
 
@@ -27,8 +26,6 @@ public class ApiDriver {
         { 
             JsonElement weatherJson = ConvertHttpResponseToJson(res.Result);
             Forecast[] weekForecast = BuildForecast(ConvertHttpResponseToJson(res.Result));
-            // TODO Remove Debug line
-            //Debug.WriteLine(string.Join(",", weekForecast.Select(f => f.ToString())));
             return weekForecast;
         } else
         {
@@ -50,7 +47,6 @@ public class ApiDriver {
         } 
         catch (HttpRequestException e)
         {
-            Debug.WriteLine("Request error: " + e.Message);
             HttpResponseMessage ErrorResponse = new()
             {
                 StatusCode = System.Net.HttpStatusCode.BadRequest

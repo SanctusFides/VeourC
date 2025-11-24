@@ -1,6 +1,4 @@
 ﻿using System.Windows.Controls;
-using System.Windows;
-using System.Diagnostics;
 
 namespace Veour.Views
 {

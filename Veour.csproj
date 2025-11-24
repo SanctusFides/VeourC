@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Files\localdb.db" />
     <None Remove="Assets\Files\locations-ranked.txt" />
-    <None Remove="Assets\Files\locations.txt" />
     <None Remove="Assets\Images\Arrows\east.png" />
     <None Remove="Assets\Images\Arrows\north.png" />
     <None Remove="Assets\Images\Arrows\northeast.png" />
@@ -49,8 +49,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\Files\locations.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Resource Include="Assets\Files\localdb.db">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Content Include="Assets\Images\Arrows\east.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

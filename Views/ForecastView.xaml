@@ -74,8 +74,6 @@
                         </StackPanel>
                     </Border>
                     <DataTemplate.Triggers>
-                        <!-- 
-                        -->
                         <Trigger Property="ItemsControl.AlternationIndex" Value="0">
                             <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
                             <Setter TargetName="DayStatus" Property="Text" Value="Current"/>
@@ -83,22 +81,18 @@
                         <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                             <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
                             <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
-
                         </Trigger>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="2">
                             <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
                             <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
-
                         </Trigger>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="3">
                             <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
                             <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
-
                         </Trigger>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="4">
                             <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
                             <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
-
                         </Trigger>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="5">
                             <Setter TargetName="ForecastBorder" Property="Border.BorderThickness" Value="0,0,1,0"/>
@@ -107,7 +101,6 @@
                         <Trigger Property="ItemsControl.AlternationIndex" Value="6">
                             <Setter TargetName="DayStatus" Property="Text" Value="Average"/>
                         </Trigger>
-
                     </DataTemplate.Triggers>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

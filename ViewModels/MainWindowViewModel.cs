@@ -24,7 +24,7 @@ namespace Veour.ViewModels
         public MainWindowViewModel()
         {
             Forecast = []; 
-            Cities = Utility.LoadCityList();
+            Cities = UtilityDriver.LoadCityList();
         }
 
 
@@ -68,15 +68,15 @@ namespace Veour.ViewModels
 
         private void SetCoordinates(string cityState)
         {
-            Debug.WriteLine(cityState);
 
             var parts = cityState.ToLower().Split(',');
             if (parts.Length != 2)
             {
                 throw new ArgumentException("Input must be in the format 'City,State'");
             }
-            string city = parts[0].Trim();
-            string state = parts[1].Trim();
+            string city = parts[0].Trim().Replace(" ","+");
+            string state = parts[1].Trim().Replace(" ", "+");
+            Debug.WriteLine(city + " " + state);
             IConfiguration configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
