@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
+using System.Windows.Navigation;
 using Veour.Exceptions;
 using Veour.ViewModels;
 
@@ -31,13 +32,15 @@ public partial class MainWindow : Window
         // Load the welcome screen telling user to enter their location
         WelcomeView welcomeView = new WelcomeView();
         contentBox.Content = welcomeView;
+
+        SearchButton.IsEnabled = false;
     }
 
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
         try
         {
-            // Handle the search and load the week's forecast object in the ViewModel, then load the view after the data is ready
+            // ViewModel handles the search and load the week's forecast object in the ViewModel, then load the view after the data is ready
             _vm.HandleSearch(CityStateInput.Text);
             DisplayForecastView();
         }
@@ -49,6 +52,19 @@ public partial class MainWindow : Window
         {
             DisplayErrorView();
         }
+    }
+
+    private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+    {
+            Process.Start(new ProcessStartInfo("https://open-meteo.com") { UseShellExecute = true });
+    }
+
+    // Will keep the search button disabled until valid search input is added. This has an interesting characteristic of keeping the button disabled
+    // until the user not only puts in text, but that it matches one of the ones in the list. The button is disabled if there is not a comma between city,state
+    // This does have some slightly add beheavior though, may change this based on feedback and just use the errors in place to guide user action
+    private void CityStateInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        SearchButton.IsEnabled = CityStateInput.SelectedItem != null;
     }
 
     private void DisplayForecastView()

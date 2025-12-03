@@ -1,9 +1,7 @@
 ﻿using Caliburn.Micro;
-using Microsoft.Extensions.Configuration;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
 using System.Runtime.CompilerServices;
 using Veour.Exceptions;
 using Veour.Models;
@@ -13,6 +11,14 @@ namespace Veour.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        // When window loads, populate Cities list from the utility class and initialize Forecast collection
+        public MainWindowViewModel()
+        {
+            Forecast = [];
+            Cities = UtilityDriver.LoadCityList();
+        }
+
+
         // API driver is instanced here and is used to look up and set the lat and long from user input
         readonly ApiDriver _apiDriver = new();
         private string? Latitude { get; set; }
@@ -24,9 +30,7 @@ namespace Veour.ViewModels
         // Forecast Collection is what will hold the forecast and be bound to the UI to display the weather data'
         public BindableCollection<Forecast> Forecast { get; set; }
 
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
+        // if an error is thrown, this variable holds the message that is presented to the user
         private string _errorMessage = "";
         public string ErrorMessage
         {
@@ -38,20 +42,15 @@ namespace Veour.ViewModels
 
             }
         }
+
+        // used for binding the error message to the view
+        public event PropertyChangedEventHandler? PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // When window loads, populate Cities list from the utility class and initialize Forecast collection
-        public MainWindowViewModel()
-        {
-            Forecast = []; 
-            Cities = UtilityDriver.LoadCityList();
-        }
-
         
-
         public void HandleSearch(string cityState)
         {
             // TODO validate input format - lift the current formatting out of SetCoords and move it into a validator here
@@ -72,21 +71,16 @@ namespace Veour.ViewModels
                     Forecast.Add(forecast);
                 }
             }
-            else
-            {
-                Debug.WriteLine($"Error: Latitude or Longitude is null for {cityState}.");
-                // TODO handle pushing error to UI
-            }
         }
 
         private void SetCoordinates(string cityState)
         {
-            // split the user input into parts for formatting
+            // Split the user input into parts for formatting
             var parts = cityState.ToLower().Split(',');
-            // if there aren't 2 parts then it mean their formatting for City,State wasn't correct and display error to user
+            // If there aren't 2 parts then it mean their formatting for City,State wasn't correct and display error to user
             if (parts.Length != 2)
             {
-                ErrorMessage = "Input must be in the format 'City,State'";
+                ErrorMessage = "Location must be 'City, State' format, please check spelling and select your location from the list";
                 throw new ArgumentException();
             }
             // Remove any trailing space and replace all " " with "+"
@@ -103,8 +97,7 @@ namespace Veour.ViewModels
                 Latitude = res.Result[0];
                 Longitude = res.Result[1];
             } else {
-                // TODO present user with error asking to check location again - need to think about this, maybe even have a contact ability
-                ErrorMessage = "Location not found, only locations in the list are currently accepted";
+                ErrorMessage = "Unable to locate City and State, please check spelling and select your location from the list";
                 throw new CoordsNotFoundException();
             }
         }

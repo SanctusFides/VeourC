@@ -8,10 +8,10 @@
              xmlns:viewmodels="clr-namespace:Veour.ViewModels" 
              d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
              Height="550" Width="1260">
-    <StackPanel HorizontalAlignment="Center" Margin="10,80,0,10">
-        <TextBlock Text="Problem has occured" HorizontalAlignment="Center"
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Problem has occured" TextAlignment="Center"
                    FontSize="38" Foreground="White"></TextBlock>
-        <TextBlock Text="{Binding ErrorMessage}" HorizontalAlignment="Center" TextWrapping="Wrap" 
-                   FontSize="62" Foreground="White"></TextBlock>
+        <TextBlock Text="{Binding ErrorMessage}" TextAlignment="Center" TextWrapping="Wrap" Margin="15,8,15,50"
+                   FontSize="38" Foreground="White"></TextBlock>
     </StackPanel>
 </UserControl>

@@ -80,6 +80,7 @@
                                 Margin="0,0,8,0" HorizontalAlignment="Stretch" BorderBrush="White" > 
                             <ComboBox 
                                 x:Name="CityStateInput"
+                                SelectionChanged="CityStateInput_SelectionChanged"
                                 IsEditable="True"
                                 FontSize="18" FontFamily="Calibri Light"
                                 VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" 
@@ -121,11 +122,19 @@
                         <!-- Forecast Section -->
                         <RowDefinition Height="*"/>
                         <!-- Empty Spacer @ Bottom -->
-                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     
                     <!-- Forecast Section -->
                     <ContentControl x:Name="contentBox" />
+
+                    <TextBlock Grid.Row="1" TextAlignment="Center" Foreground="white"> 
+                        Weather results power by 
+                        <Hyperlink NavigateUri="https://open-meteo.com/" RequestNavigate="Hyperlink_RequestNavigate"
+                                   Foreground="white" >
+                           open-meteo.com
+                        </Hyperlink>
+                    </TextBlock>
                 </Grid>
             </Border>
         </Grid>
