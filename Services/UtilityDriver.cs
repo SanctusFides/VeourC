@@ -7,7 +7,6 @@ namespace Veour.Services
 {
     public static class UtilityDriver
     {
-
         // Loads the city list from a text file and returns it as an ObservableCollection to be used for autocomplete
         public static ObservableCollection<string> LoadCityList()
         {
@@ -33,6 +32,7 @@ namespace Veour.Services
             return cities;
         }
 
+        // Values coorespond to directional degrees, I've set thresholds that make sense for each arrow
         public static BitmapImage GetWindDirectionArrowImage(int code)
         {
             Uri imagePath;
@@ -71,6 +71,7 @@ namespace Veour.Services
         }
 
 
+        // These code values are mapped to the WMO Weather interpretation codes which can be looked up online
         public static BitmapImage GetWeatherImage(string code)
         {
             Uri imagePath;
@@ -120,6 +121,7 @@ namespace Veour.Services
             return new BitmapImage(imagePath);
         }
 
+        // These code values are mapped to the WMO Weather interpretation codes which can be looked up online
         public static string MapWeatherCodeToDescription(string code)
         {
             return code switch

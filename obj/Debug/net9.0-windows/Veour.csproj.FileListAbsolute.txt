@@ -26,7 +26,6 @@ C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\refint\Veour.dll
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.pdb
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.genruntimeconfig.cache
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\ref\Veour.dll
-C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\appsettings.json
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Microsoft.Data.Sqlite.dll
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\SQLitePCLRaw.batteries_v2.dll
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\SQLitePCLRaw.core.dll
@@ -86,3 +85,6 @@ C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Assets\Images\Arrows\south
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Assets\Images\Arrows\west.png
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\WelcomeView.g.cs
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\WelcomeView.baml
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\appsettings.json
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\ErrorView.g.cs
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\ErrorView.baml

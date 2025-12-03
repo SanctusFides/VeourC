@@ -1,13 +1,17 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
+using Veour.Exceptions;
 using Veour.ViewModels;
 
 namespace Veour.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
+/// MainWindowViewModel is set as the Datacontext, where all the forecast building logic is contained
+/// Only functionality contained in here is related to button handling and view changes
 /// </summary>
 public partial class MainWindow : Window
 {
@@ -31,16 +35,34 @@ public partial class MainWindow : Window
 
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
-        _vm.HandleSearch(CityStateInput.Text);
-         DisplayForecastView();
+        try
+        {
+            // Handle the search and load the week's forecast object in the ViewModel, then load the view after the data is ready
+            _vm.HandleSearch(CityStateInput.Text);
+            DisplayForecastView();
+        }
+        catch (CoordsNotFoundException)
+        {
+            DisplayErrorView();
+        }
+        catch (ArgumentException)
+        {
+            DisplayErrorView();
+        }
     }
 
-    public void DisplayForecastView()
+    private void DisplayForecastView()
     {
         UserControl forecast = new ForecastView();        
         contentBox.Content = forecast;
     }
 
+    private void DisplayErrorView()
+    {
+        Debug.WriteLine("Inside Display Error");
+        UserControl errorView = new ErrorView();
+        contentBox.Content = errorView;
+    }
 
     // All of the code below is related to the min/max/close windows buttons in the top right & the drag to move behavior for whole window
     [DllImport("user32.dll")]
