@@ -54,6 +54,7 @@ public partial class MainWindow : Window
         }
     }
 
+    // Opens users browser to open-meteo.com when they click the hyperlink in footer
     private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
     {
             Process.Start(new ProcessStartInfo("https://open-meteo.com") { UseShellExecute = true });
@@ -75,12 +76,11 @@ public partial class MainWindow : Window
 
     private void DisplayErrorView()
     {
-        Debug.WriteLine("Inside Display Error");
         UserControl errorView = new ErrorView();
         contentBox.Content = errorView;
     }
 
-    // All of the code below is related to the min/max/close windows buttons in the top right & the drag to move behavior for whole window
+    // All of the code below is related to the ?/min/max/close windows buttons in the top right & the drag to move behavior for whole window
     [DllImport("user32.dll")]
     public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
     private void PnlControlBar_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -114,5 +114,11 @@ public partial class MainWindow : Window
     private void BtnMinimize_Click(object sender, RoutedEventArgs e)
     {
         this.WindowState = WindowState.Minimized;
+    }
+
+    private void btnAbout_Click(object sender, RoutedEventArgs e)
+    {
+        UserControl aboutView = new AboutView();
+        contentBox.Content = aboutView;
     }
 }

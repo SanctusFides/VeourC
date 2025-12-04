@@ -4,14 +4,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:Veour.Views"
-             mc:Ignorable="d" 
              xmlns:viewmodels="clr-namespace:Veour.ViewModels" 
              d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
-             Height="550" Width="1260">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="Problem has occured" TextAlignment="Center"
-                   FontSize="38" Foreground="White"></TextBlock>
-        <TextBlock Text="{Binding ErrorMessage}" TextAlignment="Center" TextWrapping="Wrap" Margin="15,8,15,50"
-                   FontSize="38" Foreground="White"></TextBlock>
-    </StackPanel>
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Viewbox Stretch="Uniform">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,8,30,50">
+            <TextBlock Text="Problem has occured" TextAlignment="Center"
+                        Foreground="White"></TextBlock>
+            <TextBlock Text="{Binding ErrorMessage}" TextAlignment="Center" TextWrapping="Wrap"
+                       Foreground="White"></TextBlock>
+        </StackPanel>
+    </Viewbox>
 </UserControl>

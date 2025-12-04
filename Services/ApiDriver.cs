@@ -46,6 +46,7 @@ public class ApiDriver {
             return response;
         } 
         catch (HttpRequestException e)
+        // TODO handle this HTTP exception getting thrown
         {
             HttpResponseMessage ErrorResponse = new()
             {

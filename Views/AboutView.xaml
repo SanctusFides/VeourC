@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Veour.Views.AboutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:Veour.Views"
+             xmlns:viewmodels="clr-namespace:Veour.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Viewbox Stretch="Uniform">
+        <StackPanel>
+            <TextBlock Text="About Veour" TextAlignment="Center"
+                   FontSize="20" Foreground="White" />
+            <Separator Background="White" Width="100"/>
+            <TextBlock TextWrapping="Wrap" Width="480" FontSize="8" Margin="15,5,15,0"
+                       TextAlignment="Center" Foreground="White">
+                Veour is a programming project that I created to familiarize myself with creating user interfaces and connecting the frontend to the backend.
+                This program was written in C# using WPF and is an improved version of original Java version.
+                <LineBreak/>
+                <LineBreak/>
+                Results are provided by the free Weather API from Open-Meteo. Each city/state are retrieved using coordinates provided by Open-Meteo's Geociding API. 
+                More infornmation about their weather models and their data figures can be found at open-meteo.com
+                <LineBreak/>
+                <Hyperlink NavigateUri="https://github.com/SanctusFides/VeourC" RequestNavigate="GitHub_RequestNavigate" Foreground="white" >
+                    View this project on GitHub
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Text="About Me" TextAlignment="Center" Margin="0,5,0,0"
+                   FontSize="20" Foreground="White" />
+            <Separator Background="White" Width="100"/>
+            <TextBlock TextWrapping="Wrap" Width="480" FontSize="8" Margin="15,0,15,0"
+                       TextAlignment="Center" Foreground="White">
+                I'm a self-taught software developer creating programs to expand my knowledge and abilities after running the customer support team for a start up 
+                that was acquired by Google. During my 9 years in that role, I worked increasingly closer with the engineering team and began to develop a passion
+                for the problem solving nature of field and decided to pursue it as a new career.
+                <LineBreak/>
+                <LineBreak/>
+                I departed Google to start learning the foundations of software development and learned the following languages: C#, Java, Python, and Javascript and frameworks such as 
+                Spring, React, Node.JS, and Vue.
+                <LineBreak/>
+                <Hyperlink NavigateUri="https://www.linkedin.com/in/john-hines-788893183/" RequestNavigate="LinkedIn_RequestNavigate" Foreground="white" >
+                    View my LinkedIn profile
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </Viewbox>
+</UserControl>

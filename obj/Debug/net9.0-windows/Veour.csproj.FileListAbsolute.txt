@@ -88,3 +88,5 @@ C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\WelcomeView.baml
 C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\appsettings.json
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\ErrorView.g.cs
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\ErrorView.baml
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\AboutView.g.cs
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\AboutView.baml

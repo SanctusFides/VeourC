@@ -4,10 +4,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:Veour.Views"
-             mc:Ignorable="d"
-             Height="550" Width="1260">
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock Text="Welcome, enter your City and State above"
-                   FontSize="48" Foreground="White"></TextBlock>
-    </StackPanel>
+             xmlns:viewmodels="clr-namespace:Veour.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Viewbox Stretch="Uniform">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Welcome, enter your City and State above" 
+                       Margin="20,0,20,0" Foreground="White" />
+        </StackPanel>
+    </Viewbox>
 </UserControl>

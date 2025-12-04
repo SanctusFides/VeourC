@@ -61,6 +61,17 @@
                                 Click="BtnMinimize_Click">
                             <fa:IconImage Icon="WindowMinimize" Style="{StaticResource winBtnIcon}"/>
                         </Button>
+                        <Button x:Name="btnAbout"
+                                Style="{StaticResource winBtn}"
+                                Width="38"
+                                RenderTransformOrigin="0.5,0.5"
+                                Click="btnAbout_Click">
+                         <!-- The button render transform will put the ? facing the right side since flow direction is flipping it -->
+                            <Button.RenderTransform>
+                                <ScaleTransform ScaleX="-1" />
+                            </Button.RenderTransform>
+                            <fa:IconImage Icon="Question" Style="{StaticResource winBtnIcon}"/>
+                        </Button>
                     </StackPanel>
                     
                     <!-- Section for the top menu bar with the City/State input box and search button -->
