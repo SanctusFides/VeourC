@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Media.Imaging;
+using Veour.Exceptions;
 
 namespace Veour.Services
 {
@@ -25,9 +26,7 @@ namespace Veour.Services
             }
             catch (Exception e)
             {
-                // TODO log error
-                Debug.WriteLine("Could not read the file");
-                Debug.WriteLine(e.Message);
+                throw new LocationFileNotFoundException();
             }
             return cities;
         }

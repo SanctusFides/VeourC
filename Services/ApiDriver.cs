@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text.Json;
+using Veour.Exceptions;
 using Veour.Models;
 
 namespace Veour.Services;
@@ -19,7 +19,7 @@ public class ApiDriver {
     /// return an entire array of forecast objects.
     /// */
 
-    public Forecast[] FetchWeather(string lat, string lon)
+    public static Forecast[] FetchWeather(string lat, string lon)
     {
         Task<HttpResponseMessage> res = FetchWeatherTask(lat, lon);
         if ( !res.Result.StatusCode.Equals(System.Net.HttpStatusCode.BadRequest)) 
@@ -29,9 +29,7 @@ public class ApiDriver {
             return weekForecast;
         } else
         {
-            // TODO handle null response
-            Debug.WriteLine("No response received from weather API.");
-            return Array.Empty<Forecast>();
+            throw new NetworkException();
         }
     }
 
@@ -41,12 +39,10 @@ public class ApiDriver {
         {
             using HttpClient client = new();
             HttpResponseMessage response = await client.GetAsync(CreateWeatherApiUrl(lat, lon)).ConfigureAwait(false);
-
             response.EnsureSuccessStatusCode();
             return response;
         } 
-        catch (HttpRequestException e)
-        // TODO handle this HTTP exception getting thrown
+        catch (HttpRequestException)
         {
             HttpResponseMessage ErrorResponse = new()
             {

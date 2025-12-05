@@ -16,23 +16,30 @@ namespace Veour.Views;
 /// </summary>
 public partial class MainWindow : Window
 {
-
-    readonly MainWindowViewModel _vm;
+    // This is set to possibly nullable because an error may be thrown during constructing due to missing city/state list
+    readonly MainWindowViewModel? _vm;
 
     public MainWindow()
     {
         InitializeComponent();
-        this._vm = new MainWindowViewModel();
-        DataContext = _vm;
-
-        // Binds the city list to the ComboBox's autocomplete list
-        CityStateInput.ItemsSource = _vm.Cities;
+        // Putting this in a try/catch so that we can check if the City file list is missing. It needs to load a different view because the ErrorMessage
+        // for normal exceptions is stored in the ViewModel, which is what is failing to load if there is no text file. So this error page has a static message
+        try
+        {
+            this._vm = new MainWindowViewModel();
+            // Binds the city list to the ComboBox's autocomplete list
+            CityStateInput.ItemsSource = _vm.Cities;
+            // Load the welcome screen telling user to enter their location
+            WelcomeView welcomeView = new WelcomeView();
+            contentBox.Content = welcomeView;
+            DataContext = _vm;
+        } 
+        catch (ElevatedException)
+        {
+            DisplayFileErrorView();
+        }
         this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
-
-        // Load the welcome screen telling user to enter their location
-        WelcomeView welcomeView = new WelcomeView();
-        contentBox.Content = welcomeView;
-
+        // This keeps the Search button disabled until they start typing and are forced to make a valid selection, handled by CityStateInput_SelectionChanged
         SearchButton.IsEnabled = false;
     }
 
@@ -50,6 +57,11 @@ public partial class MainWindow : Window
         }
         catch (ArgumentException)
         {
+            DisplayErrorView();
+        }
+        catch (NetworkException)
+        {
+            _vm.ErrorMessage = "Unable to retrieve forecast, please check your network connection and try again";
             DisplayErrorView();
         }
     }
@@ -78,6 +90,12 @@ public partial class MainWindow : Window
     {
         UserControl errorView = new ErrorView();
         contentBox.Content = errorView;
+    }
+
+    private void DisplayFileErrorView()
+    {
+        UserControl fileErrorView = new FileErrorView();
+        contentBox.Content = fileErrorView;
     }
 
     // All of the code below is related to the ?/min/max/close windows buttons in the top right & the drag to move behavior for whole window

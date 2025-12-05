@@ -15,7 +15,14 @@ namespace Veour.ViewModels
         public MainWindowViewModel()
         {
             Forecast = [];
-            Cities = UtilityDriver.LoadCityList();
+            try
+            {
+                Cities = UtilityDriver.LoadCityList();
+            }
+            catch (LocationFileNotFoundException)
+            {
+                throw new ElevatedException();
+            }
         }
 
 
@@ -65,7 +72,7 @@ namespace Veour.ViewModels
             // If valid coordinates are retrieved, fetch weather data from API
             if (!string.IsNullOrEmpty(Latitude) && !string.IsNullOrEmpty(Longitude))
             {
-                Forecast[] forecasts = _apiDriver.FetchWeather(Latitude, Longitude);
+                Forecast[] forecasts = ApiDriver.FetchWeather(Latitude, Longitude);
                 foreach (Forecast forecast in forecasts)
                 {
                     Forecast.Add(forecast);
