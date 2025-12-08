@@ -36,6 +36,7 @@ public partial class MainWindow : Window
         } 
         catch (ElevatedException)
         {
+            // Elevated exceptions are to push errors catch nested in the ViewModel's logic that need to bubble up
             DisplayFileErrorView();
         }
         this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
@@ -48,8 +49,11 @@ public partial class MainWindow : Window
         try
         {
             // ViewModel handles the search and load the week's forecast object in the ViewModel, then load the view after the data is ready
-            _vm.HandleSearch(CityStateInput.Text);
-            DisplayForecastView();
+           if (_vm != null)
+            {
+                _vm.HandleSearch(CityStateInput.Text);
+                DisplayForecastView();
+            }
         }
         catch (CoordsNotFoundException)
         {
@@ -61,8 +65,11 @@ public partial class MainWindow : Window
         }
         catch (NetworkException)
         {
-            _vm.ErrorMessage = "Unable to retrieve forecast, please check your network connection and try again";
-            DisplayErrorView();
+            if (_vm != null)
+            { 
+                _vm.ErrorMessage = "Unable to retrieve forecast, please check your network connection and try again";
+                DisplayErrorView();
+            }
         }
     }
 

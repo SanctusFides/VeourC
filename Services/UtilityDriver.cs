@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 using System.Windows.Media.Imaging;
 using Veour.Exceptions;
@@ -24,7 +23,7 @@ namespace Veour.Services
                     cities.Add(line);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new LocationFileNotFoundException();
             }
@@ -149,6 +148,5 @@ namespace Veour.Services
                 _ => "error",
             };
         }
-
     }
 }

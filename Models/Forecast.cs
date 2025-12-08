@@ -95,7 +95,7 @@ public class Forecast {
     {
         return Date.DayOfWeek.ToString().ToUpper();
     }
-    
+
     public override string ToString()
     {
         return "Forecast{" +

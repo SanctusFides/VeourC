@@ -1,10 +1,12 @@
 ﻿using Microsoft.Data.Sqlite;
-using Microsoft.Extensions.Configuration;
-using System.Diagnostics;
 using System.IO;
 
 namespace Veour.Services {
     public class SqlDataAccess {
+
+    // Using SQLite which does not support Stored Procedures to make my query call with, so it's not as locked down against SQL injections,
+    // but user does not have control over what gets searched because the Combo Box is onl valid if the input matches a values in the bound autocomplete list.
+    // Summary: User is not allowed to search for just any value they enter, they must enter a value deemed correct.
 
         private readonly string _connectionString = "";
         private const string Query = "SELECT lat, long FROM locations WHERE city = @city AND state = @state";

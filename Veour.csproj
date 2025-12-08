@@ -8,6 +8,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Assets\Images\icon.ico</ApplicationIcon>
     <Platforms>AnyCPU;x64</Platforms>
+    <UserSecretsId>d25ef400-4c95-4d41-bd27-ae1ef786dc59</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +36,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\Files\locations-ranked.txt">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 
@@ -46,6 +47,7 @@
     <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.9" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.9" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.9" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0-rc.2.25502.107" />
     <PackageReference Include="System.Data.SQLite" Version="2.0.2" />
   </ItemGroup>
@@ -112,7 +114,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\FireErrorView.xaml.cs">
+    <Compile Update="Views\FileErrorView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

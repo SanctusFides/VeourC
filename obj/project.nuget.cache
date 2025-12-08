@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "StpFx1rCzwQ=",
+  "dgSpecHash": "CcofT/ZJgmo=",
   "success": true,
   "projectFilePath": "C:\\Users\\John1\\Code\\C#\\Veour\\Veour.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.9\\microsoft.extensions.configuration.abstractions.9.0.9.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.9\\microsoft.extensions.configuration.fileextensions.9.0.9.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.configuration.json\\9.0.9\\microsoft.extensions.configuration.json.9.0.9.nupkg.sha512",
+    "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.configuration.usersecrets\\9.0.9\\microsoft.extensions.configuration.usersecrets.9.0.9.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.0-rc.2.25502.107\\microsoft.extensions.dependencyinjection.10.0.0-rc.2.25502.107.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0-rc.2.25502.107\\microsoft.extensions.dependencyinjection.abstractions.10.0.0-rc.2.25502.107.nupkg.sha512",
     "C:\\Users\\John1\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.9\\microsoft.extensions.fileproviders.abstractions.9.0.9.nupkg.sha512",

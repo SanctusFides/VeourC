@@ -25,7 +25,7 @@ public class ApiDriver {
         if ( !res.Result.StatusCode.Equals(System.Net.HttpStatusCode.BadRequest)) 
         { 
             JsonElement weatherJson = ConvertHttpResponseToJson(res.Result);
-            Forecast[] weekForecast = BuildForecast(ConvertHttpResponseToJson(res.Result));
+            Forecast[] weekForecast = BuildForecast(weatherJson);
             return weekForecast;
         } else
         {
@@ -117,7 +117,6 @@ public class ApiDriver {
         }
         return weekForecast;
     }
-
 
     public static string CreateWeatherApiUrl(string lat, string lon)
     {

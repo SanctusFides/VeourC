@@ -1,7 +1,6 @@
 ﻿using Caliburn.Micro;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Veour.Exceptions;
 using Veour.Models;
@@ -21,6 +20,7 @@ namespace Veour.ViewModels
             }
             catch (LocationFileNotFoundException)
             {
+                // Elevated Exception is used to push from ViewModel to View to trigger displaying error page for this deeper LocationFileNotFound error
                 throw new ElevatedException();
             }
         }
@@ -52,16 +52,18 @@ namespace Veour.ViewModels
 
         // used for binding the error message to the view
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         
+        // Minimal amount of user validation is required due to the search button not being enabled unless the user enters a value that matches a string
+        // from the bound autocomplete list. So there should be no ability for a user to enter an invalid result, making SQL injection difficult.
+        // A breach would require changing the code or triggering a state where the user can trick the search button to be enabled when it shouldn't.
+        // Any successful breach of that though would only be impacting the users local install and only break their own files.
         public void HandleSearch(string cityState)
         {
-            // TODO validate input format - lift the current formatting out of SetCoords and move it into a validator here
-
             // If there is a previous forecast, clear it to an empty array or else a previous will load on UI
             if (Forecast.Any())
             {

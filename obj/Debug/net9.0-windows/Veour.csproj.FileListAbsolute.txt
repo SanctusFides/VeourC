@@ -89,5 +89,7 @@ C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\refint\Veour.dll
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.pdb
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Veour.genruntimeconfig.cache
 C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\ref\Veour.dll
-C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\FireErrorView.g.cs
-C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\FireErrorView.baml
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\FileErrorView.g.cs
+C:\Users\John1\Code\C#\Veour\obj\Debug\net9.0-windows\Views\FileErrorView.baml
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Assets\Files\locations-ranked.txt
+C:\Users\John1\Code\C#\Veour\bin\Debug\net9.0-windows\Microsoft.Extensions.Configuration.UserSecrets.dll
