@@ -1,6 +1,6 @@
 <img width="600" height="400" alt="Veour1" src="https://github.com/user-attachments/assets/278109fa-6b9d-496f-a854-c20090ef25a7" />
 
-Veour is a weather forecast app writen entirely in C# using WPF for the user interface.
+Veour is a weather forecast app written entirely in C# using WPF for the user interface.
 
 <img width="600" height="400" alt="Veour2" src="https://github.com/user-attachments/assets/4d4d9284-1226-41c7-988d-e943ebada322" />
 
