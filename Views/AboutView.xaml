@@ -39,7 +39,7 @@
                 I departed Google to start learning the foundations of software development and learned the following languages: C#, Java, Python, and Javascript and frameworks such as 
                 Spring, React, Node.JS, and Vue.
                 <LineBreak/>
-                <Hyperlink NavigateUri="https://www.linkedin.com/in/john-hines-788893183/" RequestNavigate="LinkedIn_RequestNavigate" Foreground="white" >
+                <Hyperlink NavigateUri="https://www.linkedin.com/in/john-hines-tx/" RequestNavigate="LinkedIn_RequestNavigate" Foreground="white" >
                     View my LinkedIn profile
                 </Hyperlink>
             </TextBlock>

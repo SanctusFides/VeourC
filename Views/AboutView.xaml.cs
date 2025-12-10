@@ -22,7 +22,7 @@ namespace Veour.Views
 
         private void LinkedIn_RequestNavigate(object sender, RequestNavigateEventArgs args)
         {
-            Process.Start(new ProcessStartInfo("https://www.linkedin.com/in/john-hines-788893183/") { UseShellExecute = true });
+            Process.Start(new ProcessStartInfo("https://www.linkedin.com/in/john-hines-tx/") { UseShellExecute = true });
         }
     }
 }

@@ -993,11 +993,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\John1\\Code\\C#\\Veour\\Veour.csproj",
+      "projectUniqueName": "C:\\Users\\John1\\Code\\Veour\\Veour.csproj",
       "projectName": "Veour",
-      "projectPath": "C:\\Users\\John1\\Code\\C#\\Veour\\Veour.csproj",
+      "projectPath": "C:\\Users\\John1\\Code\\Veour\\Veour.csproj",
       "packagesPath": "C:\\Users\\John1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\John1\\Code\\C#\\Veour\\obj\\",
+      "outputPath": "C:\\Users\\John1\\Code\\Veour\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1093,7 +1093,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
