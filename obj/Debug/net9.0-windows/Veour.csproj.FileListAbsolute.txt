@@ -112,7 +112,6 @@ C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\Assets\Images\Weather\snow.pn
 C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\Assets\Images\Weather\storm.png
 C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\Assets\Images\Weather\sun.png
 C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\Assets\Files\locations-ranked.txt
-C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\appsettings.json
 C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\Veour.deps.json
 C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\Veour.runtimeconfig.json
 C:\Users\John1\Code\Veour\bin\Debug\net9.0-windows\Veour.dll
