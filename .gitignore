@@ -39,8 +39,11 @@
 *.vssscc
 *.vspscc
 *.vspcc
+obj
 
 # Visual Studio files
+.vs/Veour/v17
+.idea/.idea.Veour/.idea
 .vs/
 *.sln.docstates
 *.csproj.user
@@ -66,3 +69,4 @@ TestResults/
 
 # DotNet CLI files
 .dotnet/
+/Properties/PublishProfiles
